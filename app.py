@@ -118,12 +118,12 @@ def insertPersonnalInformations(list_features,list_features_real):
     list_features.append([nombre_enfant])
     list_features_real.append(nombre_enfant)
 
-    propriétaire = st.radio("Are you owner?",('Yes', 'No'))
-    if propriétaire =="Yes":
+    proprietaire = st.radio("Are you owner?",('Yes', 'No'))
+    if proprietaire =="Yes":
         list_features.append([1,0])
         list_features_real.append("Yes")
 
-    elif propriétaire =="No":
+    elif proprietaire =="No":
         list_features.append([0,1])
         list_features_real.append("No")
 
@@ -140,9 +140,9 @@ def insertPersonnalInformations(list_features,list_features_real):
     list_features.append([float(rente_pret)])
     list_features_real.append(float(rente_pret))
 
-    prix_bien_pret_accordé=st.text_input("Amount granted",0)
-    list_features.append([float(prix_bien_pret_accordé)])
-    list_features_real.append(float(prix_bien_pret_accordé))
+    prix_bien_pret_accorde=st.text_input("Amount granted",0)
+    list_features.append([float(prix_bien_pret_accorde)])
+    list_features_real.append(float(prix_bien_pret_accorde))
 
     list_features.append([float(age)])
     list_features_real.append(float(age))
@@ -229,41 +229,41 @@ def insertPersonnalInformations(list_features,list_features_real):
 
 
 
-    durée_emploi=st.slider("Days employed", 0, 400000, 0)
-    list_features.append([durée_emploi])
-    list_features_real.append(float(durée_emploi))
+    duree_emploi=st.slider("Days employed", 0, 400000, 0)
+    list_features.append([duree_emploi])
+    list_features_real.append(float(duree_emploi))
 
 
-    type_societé = st.selectbox("Organization Type",['Business Entity', 'Education', 'Government', 'Religion', 'Other', 'Health', 'Self-employed', 'Services', 'Bank and Insurance', 'Industry'])
+    type_societe = st.selectbox("Organization Type",['Business Entity', 'Education', 'Government', 'Religion', 'Other', 'Health', 'Self-employed', 'Services', 'Bank and Insurance', 'Industry'])
 
-    if type_societé =='Business Entity':
+    if type_societe =='Business Entity':
         list_features.append([1,0,0,0,0,0,0,0,0,0])
         list_features_real.append('Business Entity')
-    elif type_societé =='Education':
+    elif type_societe =='Education':
         list_features.append([0,1,0,0,0,0,0,0,0,0])
         list_features_real.append("Education")
-    elif type_societé =='Government':
+    elif type_societe =='Government':
         list_features.append([0,0,1,0,0,0,0,0,0,0])
         list_features_real.append("Government")
-    elif type_societé =='Religion':
+    elif type_societe =='Religion':
         list_features.append([0,0,0,1,0,0,0,0,0,0])
         list_features_real.append("Religion")
-    elif type_societé =='Other':
+    elif type_societe =='Other':
         list_features.append([0,0,0,0,1,0,0,0,0,0])
         list_features_real.append("Other")
-    elif type_societé =='Health':
+    elif type_societe =='Health':
         list_features.append([0,0,0,0,0,1,0,0,0,0])
         list_features_real.append("Health")
-    elif type_societé =='Self-employed':
+    elif type_societe =='Self-employed':
         list_features.append([0,0,0,0,0,0,1,0,0,0])
         list_features_real.append("Self-employed")
-    elif type_societé =='Services':
+    elif type_societe =='Services':
         list_features.append([0,0,0,0,0,0,0,1,0,0])
         list_features_real.append("Services")
-    elif type_societé =='Bank and Insurance':
+    elif type_societe =='Bank and Insurance':
         list_features.append([0,0,0,0,0,0,0,0,1,0])
         list_features_real.append("Bank and Insurance")
-    elif type_societé =='Industry':
+    elif type_societe =='Industry':
         list_features.append([0,0,0,0,0,0,0,0,0,1])
         list_features_real.append("Industry")
 
