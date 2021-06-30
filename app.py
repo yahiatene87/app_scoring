@@ -127,6 +127,7 @@ def insertPersonnalInformations(list_features,list_features_real):
         list_features.append([0,1])
         list_features_real.append("No")
 
+
     rente_annuelle=st.text_input("Annual salary",0)
     list_features.append([float(rente_annuelle)])
     list_features_real.append(float(rente_annuelle))
