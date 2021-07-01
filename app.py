@@ -60,6 +60,8 @@ def loadData(file):
 
 home = os.getcwd()
 home=home.replace('\\','/')
+st.write('good')
+st.write(home)
 
 data_all = loadData(home+'/data/data_appli.pickle')
 data_string=loadData(home+'/data/string_values.pickle')
