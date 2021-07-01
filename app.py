@@ -8,6 +8,7 @@ from PIL import Image
 import sqlite3
 import hashlib
 import os
+import sklearn
 
 
 conn= sqlite3.connect('data_base.db')
