@@ -74,8 +74,8 @@ XGB_clf = loadData(home+'/data/XGB_clf.pickle')
 # OCCUPATION_TYPE_dict = loadData('/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/OCCUPATION_TYPE_normal.pickle')
 ##chargement des logos
 file_logo=home+'/images/logo.png'
-accorde=home+'/images/accordé.png'
-refuse=home+'/images/refusé.png'
+accorde=home+'/images/accorde.png'
+refuse=home+'/images/refuse.png'
 ########################################### Functions #################################################
 
 
