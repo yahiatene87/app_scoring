@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import sqlite3
 import hashlib
+import os
 
 conn= sqlite3.connect('data_base.db')
 c = conn.cursor()
@@ -57,17 +58,20 @@ def loadData(file):
         outputData = pickle.load(handle)
     return outputData
 
-data_all = loadData('/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/app_scoring/data/data_appli.pickle')
-data_string=loadData('/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/app_scoring/data/string_values.pickle')
-scaler = loadData('/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/app_scoring/data/scaler.pickle')
-XGB_clf = loadData('/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/app_scoring/data/XGB_clf.pickle')
+home = os.getcwd()
+home=home.replace('\\','/')
+
+data_all = loadData(home+'/data/data_appli.pickle')
+data_string=loadData(home+'/data/string_values.pickle')
+scaler = loadData(home+'/data/scaler.pickle')
+XGB_clf = loadData(home+'/data/XGB_clf.pickle')
 
 # ORGANIZATION_dict = loadData('/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/ORGANIZATION_TYPE_normal.pickle')
 # OCCUPATION_TYPE_dict = loadData('/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/OCCUPATION_TYPE_normal.pickle')
 ##chargement des logos
-file_logo='/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/app_scoring/images/logo.png'
-accorde='/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/app_scoring/images/accordé.png'
-refuse='/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/app_scoring/images/refusé.png'
+file_logo=home+'/images/logo.png'
+accorde=home+'/images/accordé.png'
+refuse=home+'/images/refusé.png'
 ########################################### Functions #################################################
 
 
@@ -380,9 +384,9 @@ def runInsertPersonnalInformations():
     insertPersonnalInformations(list_features, list_features_real)
 
     arr = np.array([item for sublist in list_features for item in sublist][2:])
-    with open('/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/app_scoring/data/arr_output.pickle','wb') as handle:
+    with open(home+'/data/arr_output.pickle','wb') as handle:
         pickle.dump(arr, handle, protocol=pickle.HIGHEST_PROTOCOL)
-    with open('/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/app_scoring/data/arr_output_str.pickle','wb') as handle:
+    with open(home+'/data/arr_output_str.pickle','wb') as handle:
         pickle.dump(list_features_real, handle, protocol=pickle.HIGHEST_PROTOCOL)
     if st.button("Submit"):
         X_scaled = scaler.fit_transform(arr[:, np.newaxis])
@@ -410,8 +414,8 @@ def plotFigure(list_input_data):
     st.markdown(html_template.format("#2C3539","#FFFFFF"), unsafe_allow_html=True)
 
     # st.write(data.list_features)
-    arr_output = loadData('/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/arr_output.pickle')
-    arr_output_str = loadData('/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/arr_output_str.pickle')
+    arr_output = loadData(home+'/data/arr_output.pickle')
+    arr_output_str = loadData(home+'/data/arr_output_str.pickle')
 
     col1 = st.beta_columns(3)
     col2 = st.beta_columns(3)
