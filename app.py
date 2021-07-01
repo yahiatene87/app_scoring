@@ -314,8 +314,8 @@ def load_logo(file_logo):
 
     return logo
 logo=load_logo(file_logo)
-
-
+accorde=load_logo(accorde)
+refuse=load_logo(refuse)
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
