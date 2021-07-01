@@ -74,8 +74,8 @@ XGB_clf = loadData(home+'/data/XGB_clf.pickle')
 # OCCUPATION_TYPE_dict = loadData('/Users/Karim/Desktop/Data_Science/Projets/Projet_07/P7_Yahiatene_Karim/OCCUPATION_TYPE_normal.pickle')
 ##chargement des logos
 file_logo=home+'/images/logo.png'
-file_accorde=home+'/images/accorde.png'
-file_refuse=home+'/images/refuse.png'
+# file_accorde=home+'/images/accorde.png'
+# file_refuse=home+'/images/refuse.png'
 ########################################### Functions #################################################
 
 
@@ -314,8 +314,8 @@ def load_logo(file_logo):
 
     return logo
 logo=load_logo(file_logo)
-accorde=load_logo(file_accorde)
-refuse=load_logo(file_refuse)
+# accorde=load_logo(file_accorde)
+# refuse=load_logo(file_refuse)
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -396,10 +396,12 @@ def runInsertPersonnalInformations():
         X_scaled = scaler.fit_transform(arr[:, np.newaxis])
         y_pred = XGB_clf.predict(X_scaled.T)
         if int(y_pred[0]) == 0:
-            st.image(accorde, width=100)
+            # st.image(accorde, width=100)
+            st.write("Your loan has been garanted")
             st.write("Score is:"+str(0.62), width=100)
         elif int(y_pred[0]) == 1:
-            st.image(refuse, width=100)
+            # st.image(refuse, width=100)
+            st.write("Your loan has been refused")
             st.write("Score is:"+str(0.62), width=100)
 
     else:
